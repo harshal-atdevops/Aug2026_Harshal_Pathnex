@@ -1,0 +1,69 @@
+Day1-basics 
+#ansible task -install Nginx on pathnex server
+-name : Install Nginx on pathnex server
+host : all
+become : yes
+
+task : 
+-name : Install nginx
+yum : 
+	name : nginx
+	state : present
+
+#terraform task- create ec2 (c5.xlarge)
+provider : "aws"{
+region ="us-east-1
+}
+resource "aws instance" "pathnex"{
+ami = "ami-0abcd1235abcd2345"
+instance type = "c5.large"
+tags = {
+	name = "pathnex-ec2"
+}
+}
+
+#kubernetes task - create nginx pod
+apiversion: v1
+kind : pod
+metadata :
+	name : pathnex-pod
+spec : 
+	container : 
+		-name : web 
+		image: nginx : latest
+		ports : container port : 80
+
+#shell script -print dta and host name
+
+#!/bin/bash
+echo "date : $(date)"
+echo "hostname: $(hostname)"
+
+#git integration
+## jenkins pipeline - checkout git
+pipeline {
+	agent any
+	stages {
+		stage('checkout'){
+			steps{
+			git branch : 'main',url : 'https://github.com/pathnex/sample-java-			app.git'
+			}
+			stage('list files'){
+			steps {
+			sh 'ls-la'
+			}
+		}
+	}
+} 
+
+#G gitLab CI — Checkout Git
+
+stages:
+  - checkout
+git-checkout:
+  stage: checkout
+  script:
+    - git clone https://github.com/Pathnex/sample-java-app.git
+    - cd sample-java-app
+    - ls -la
+
