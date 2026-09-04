@@ -1,0 +1,4 @@
+timings 
+1 hr -spoken English
+2 hr - docker revision
+2 hr - aws notes revision
