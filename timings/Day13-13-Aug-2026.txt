@@ -1,0 +1,5 @@
+timings day13
+1 hr - spoken English
+2 hr - aws revision
+3 hr - Kubernetes lectures
+1 hr - final day revision
