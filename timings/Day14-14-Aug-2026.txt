@@ -1,0 +1,5 @@
+timings day 14 -
+1 hr - spoken English
+2 hr - Kubernetes notes revision
+2 hr - Linux learning
+2 hr - go through aws
