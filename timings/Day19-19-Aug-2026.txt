@@ -1,0 +1,6 @@
+day 19 - timings
+
+1 hr - spoken English
+4 hr - lecture rewatch
+3 hr - Kubernetes + argo cd precctice
+1 hr - day revision
