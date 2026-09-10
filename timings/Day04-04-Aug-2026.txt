@@ -1,4 +1,5 @@
-2 hr - eng grammar
+2 hr - english grammar
 2 hr aws concepts/services
 1 hr - aws console explore
-1 hr - revision 
+1 hr - revision notes
+1 hr - day revsion 
