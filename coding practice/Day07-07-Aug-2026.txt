@@ -1,11 +1,11 @@
-day 7 - automating cloud infra with terraform and ansible
+Day 07 — Automating Cloud Infrastructure with Terraform & Ansible
 
-Ansible — setup Nginx with custom config
+#Ansible — Setup Nginx with Custom Config
 - name: Setup Nginx with Custom Config
 hosts: all
 become: yes
 tasks:
-	- name: Install nginx
+    	- name: Install nginx
       	yum:
         name: nginx
         state: present
@@ -19,17 +19,17 @@ tasks:
         state: started
         enabled: yes
 
-# terraform — provision ec2 with IAM role
+# Terraform — Provision EC2 with IAM Role
 resource "aws_iam_role" "ec2_role" {
   	name = "pathnex_ec2_role"
   	assume_role_policy = jsonencode({
-    		Version = "2012-10-17"
-    		Statement = [
-      		{
-        		Action = "sts:AssumeRole"
-        		Effect = "Allow"
-        		Principal = {
-          			Service = "ec2.amazonaws.com"
+    	Version = "2012-10-17"
+    	Statement = [
+      	{
+        	Action = "sts:AssumeRole"
+        	Effect = "Allow"
+        	Principal = {
+          		Service = "ec2.amazonaws.com"
         			}
       			},
     		]
@@ -45,8 +45,7 @@ resource "aws_instance" "pathnex_ec2" {
   	}
 }
 
-
-# kubernetes — ConfigMap and secret management
+# Kubernetes — ConfigMap and Secret Management
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -55,7 +54,7 @@ data:
   	app.properties: |
     	key=value
 
-
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -69,14 +68,15 @@ data:
 #!/bin/bash
 tar -czf /var/log/archived_logs.tar.gz /var/log/*.log
 
-#Docker Java Application 
+
+# Docker Java Application 
+
 # JavaScript
 class Hello {
     	public static void main(String[] args) {
         	System.out.println("Hello Pathnex");
     	}
 }
-
 
 # Docker File
 FROM openjdk:17
