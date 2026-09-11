@@ -1,0 +1,5 @@
+timings day12
+
+3 hr - Kubernetes lectures
+1.5 hr - Kubernetes notes revision
+1/2 hr - spoken English

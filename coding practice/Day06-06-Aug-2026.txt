@@ -1,5 +1,5 @@
-day 6- intro to cloudformation and Kubernetes advanced concepts
-## Ansible — Install Docker
+day 6- intro to CloudFormation and Kubernetes advanced concepts
+## Ansible — install docker
 
 yaml
 	- name: install Docker
@@ -8,16 +8,17 @@ yaml
   	tasks:
     	- name: install Docker
       	yum:
-        name: docker
-        state: present
+        	name: docker
+        	state: present
     	- name: start docker
       	service:
-        name: docker
-        state: started
-        enabled: yes
+        	name: docker
+        	state: started
+        	enabled: yes
 
         
 #  Terraform — provisioning eC2 with VPC
+
 resource "aws_vpc" "main" {
 	cidr_block = "10.0.0.0/16"
 }
@@ -27,7 +28,7 @@ resource "aws_instance" "pathnex_ec2" {
   	instance_type = "t3.medium"
   	subnet_id = aws_subnet.main.id
   	tags = {
-    		Name = "Pathnex-EC2"
+    	Name = "Pathnex-EC2"
   	}
 }
 
@@ -42,13 +43,13 @@ spec:
 		-name: web
 		image: nginx
 		volumeMounts:
-        	- mountPath: /usr/share/nginx/html
-          	name: html-volume
+        		- mountPath: /usr/share/nginx/html
+          		name: html-volume
   	volumes:
     		- name: html-volume
       		hostPath:
-        	path: /data
-        	type: Directory
+        		path: /data
+        		type: Directory
 
 
 # shell script — check for running services
