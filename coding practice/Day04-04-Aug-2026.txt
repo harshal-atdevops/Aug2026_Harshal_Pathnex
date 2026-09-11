@@ -25,40 +25,40 @@ pipeline{
 
 #  GitLab Ci/Cd — basic pipeline
 stages:
-  - build
-  - test
-  - deploy
+  	- build
+  	- test
+  	- deploy
 
 build:
-  stage: build
-  script:
-    - echo "building project"
+  	stage: build
+  	script:
+    	- echo "building projects"
 
 test:
-  stage: test
-  script:
-    - echo "running tests"
+  	stage: test
+  	script:
+    	- echo "running tests"
 
 deploy:
-  stage: deploy
-  script:
-    - echo "deploying application"
+  	stage: deploy
+  	script:
+    	- echo "deploying application"
 
 # ansible — install and configure Nginx
 - name: install and configure Nginx
-  hosts: all
-  become: yes
-  tasks:
-    - name: install nginx
-      yum:
+hosts: all
+become: yes
+tasks:
+    	- name: install nginx
+     	yum:
         	name: nginx
         	state: present
-    - name: configure nginx
-      template:
+    	- name: configure nginx
+      	template:
         	src: nginx.conf.j2
         	dest: /etc/nginx/nginx.conf
-    - name: Start nginx service
-      service:
+    	- name: Start nginx service
+      	service:
         	name: nginx
         	state: started
         	enabled: yes
@@ -68,30 +68,31 @@ deploy:
 resource "aws_security_group" "example" {
   	name = "example_security_group"
   	description = "allow SSH and HTTP"
-  ingress {
-    	from_port = 22
-    	to_port = 22
-    	protocol = "tcp"
-    	cidr_blocks = ["0.0.0.0/0"]
+  	ingress {
+    		from_port = 22
+    		to_port = 22
+    		protocol = "tcp"
+    		cidr_blocks = ["0.0.0.0/0"]
   	}
 
-  ingress {
-    	from_port = 80
-    	to_port = 80
-    	protocol = "tcp"
-    	cidr_blocks = ["0.0.0.0/0"]
+  	ingress {
+    		from_port = 80
+    		to_port = 80
+    		protocol = "tcp"
+    		cidr_blocks = ["0.0.0.0/0"]
   	}
 
   egress {
-    	from_port = 0
-    	to_port = 0
-    	protocol = "-1"
-    	cidr_blocks = ["0.0.0.0/0"]
+    		from_port = 0
+    		to_port = 0
+    		protocol = "-1"
+    		cidr_blocks = ["0.0.0.0/0"]
   	}
 }
 
 
 # docker
+
 # apache container
 FROM ubuntu:22.04
 RUN apt update && apt install apache2 -y
