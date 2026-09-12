@@ -1,6 +1,5 @@
 Day 07 — Automating Cloud Infrastructure with Terraform & Ansible
-
-🔹 Ansible — Setup Nginx with Custom Config
+ Ansible — Setup Nginx with Custom Config
 - name: Setup Nginx with Custom Config
   hosts: all
   become: yes
@@ -19,7 +18,7 @@ Day 07 — Automating Cloud Infrastructure with Terraform & Ansible
         state: started
         enabled: yes
 
-🔹 Terraform — Provision EC2 with IAM Role
+ Terraform — Provision EC2 with IAM Role
 resource "aws_iam_role" "ec2_role" {
   name               = "pathnex_ec2_role"
   assume_role_policy = jsonencode({
@@ -45,30 +44,30 @@ resource "aws_instance" "pathnex_ec2" {
   }
 }
 
-🔹 Kubernetes — ConfigMap and Secret Management
+ Kubernetes — ConfigMap and Secret Management
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pathnex-config
+    name: pathnex-config
 data:
-  app.properties: |
-    key=value
+    app.properties: |
+      key=value
 
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: pathnex-secret
+    name: pathnex-secret
 type: Opaque
 data:
-  password: cGF0aG5leHBhc3M=
+    password: cGF0aG5leHBhc3M=
 
-🔹 Shell Script — Archive Logs
+ Shell Script — Archive Logs
 #!/bin/bash
 tar -czf /var/log/archived_logs.tar.gz /var/log/*.log
 
 
-🔹 Docker Java Application
+ Docker Java Application
 # JavaScript
 class Hello {
     public static void main(String[] args) {
